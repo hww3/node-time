@@ -118,8 +118,8 @@ class Time {
       } else {
         scd = -timezone;
       }
-      Nan::Set(obj, Nan::New("gmtOffset").ToLocalChecked(), Nan::New<v8::Integer>(scd));
-      Nan::Set(obj, Nan::New("timezone").ToLocalChecked(), Nan::New<v8::String>(tzname[timeinfo->tm_isdst]));
+      Nan::Set(obj, Nan::New("gmtOffset").ToLocalChecked(), Nan::New<v8::Number>(scd));
+      Nan::Set(obj, Nan::New("timezone").ToLocalChecked(), Nan::New(tzname[timeinfo->tm_isdst]).ToLocalChecked());
 #endif // HAVE_TM_GMTOFF
     } else {
       Nan::Set(obj, Nan::New("invalid").ToLocalChecked(), Nan::New<v8::Boolean>(true));
